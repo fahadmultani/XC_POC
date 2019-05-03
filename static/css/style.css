@@ -1,0 +1,20 @@
+#asterisk
+	{
+		color: #FF0000; 
+	}
+select.wrong-field
+	{
+		border: 1px solid red;
+	}
+textarea.wrong-field
+	{
+		border: 1px solid red;
+	}
+input.wrong-field
+	{
+			border: 1px solid red;
+	}
+span.wrong-field
+	{
+			color: #FF0000;
+	}

@@ -1,0 +1,72 @@
+<!-- Extends root.html template -->
+{% extends 'root.html' %}
+<!-- Table block starts -->
+{% block table %}
+<div class = "container col-md-8">
+	<form action = "" method = "post">
+		{{ form.csrf_token }}
+	    <legend class = "border-bottom mb-4">New Request Form</legend>
+	    <p class = "border-bottom"><span id="asterisk">*</span> These fields are required.</p>
+	    <!-- Title -->
+	    <div class = "form-group">
+	        <label>Title <span id="asterisk">*</span></label>
+	        <input type = "text" name = "title" data-bind = "value:title,validationElement: title" class = "form-control form-control-sm"/>
+	    </div>
+	    <!-- End Title -->
+	    <!-- //////////////// -->
+	    <!-- Description -->
+	    <div class = "form-group">
+	  		<label>Description <span id = "asterisk">*</span></label>
+	        <textarea type = "text" name = "description" data-bind = "value:description,validationElement: description"class = "form-control form-control-sm">
+	        </textarea>
+		</div>
+		<!-- End Description -->
+		<!-- /////////////// -->
+		<!-- Client -->
+		<div class = "form-group">
+	  		<label>Client <span id = "asterisk">*</span></label>
+	        <select name = "client" class = "form-control" data-bind = "value:selectClient,validationElement: selectClient">
+	        	<option value = "" selected>Select your option</option>
+				{% for i in cl %}
+				<option value = "{{i.id}}"> {{ i.clientName }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<!-- End Client -->
+		<!-- ////////////// -->
+		<!-- Client Priority -->
+		<div class = "form-group">
+	  		<label>Client Priority <span id = "asterisk">*</span></label>
+	        <input type = "number" name = "client_priority" data-bind = "value:clientPriority,validationElement: clientPriority" class="form-control form-control-sm"/>
+		</div>
+		<!-- End Client Priority -->
+		<!-- ///////////////// -->
+		<!-- Target Date -->
+		<div class = "form-group">
+	  		<label>Target Date <span id = "asterisk">*</span></label>
+    		<input class="form-control form-control-sm" name = "targetDate" data-bind = "value:targetDate,validationElement: targetDate" type="text" placeholder="start date" id="startdate_datepicker">
+		</div>
+		<!-- End Target Date -->
+		<!-- //////////////// -->
+		<!-- Product Area -->
+		<div class = "form-group">
+	  		<label>Product Area <span id = "asterisk">*</span></label>
+	  		<select name = "productArea" class = "form-control" data-bind = "value:productArea,validationElement: productArea">
+	  			<option value = "" selected>Select your option</option>
+	  			{% for i in pa %}
+				<option value = "{{i.id}}"> {{i.productArea}}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<!-- End Product Area -->
+		<!-- //////////////// -->
+		<!-- Submit Button -->
+		<div>
+			<button class = "btn btn-primary my-1" type = "submit" data-bind = "click:submit">Submit</button>
+		</div>
+		<!-- End Submit Button -->
+	</form>
+</div>
+<script src="{{ url_for('static', filename='js/koValidations.js') }}"></script>
+{% endblock %}
+<!-- Table block ends -->
