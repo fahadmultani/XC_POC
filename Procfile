@@ -1,1 +1,1 @@
-gunicorn manage:index.py
+web: gunicorn hellodjango.wsgi
