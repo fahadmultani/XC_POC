@@ -4,7 +4,7 @@ from featureform import FeatureForm
 import json
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://nativeuser:password@localhost/featurerequest'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://ztrqggtgkteglg:599ec0bc2356af2ca050b773e1d2ecccacad68c684cfd24fb1bd04b63680ac16@ec2-174-129-208-118.compute-1.amazonaws.com:5432/d4iolc7kmdfhnr'
 app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
