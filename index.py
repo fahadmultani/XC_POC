@@ -2,10 +2,14 @@ from flask import Flask, render_template, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from featureform import FeatureForm
 import json
+import os
+import psycopg2
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://ztrqggtgkteglg:599ec0bc2356af2ca050b773e1d2ecccacad68c684cfd24fb1bd04b63680ac16@ec2-174-129-208-118.compute-1.amazonaws.com:5432/d4iolc7kmdfhnr'
-app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://ztrqggtgkteglg:599ec0bc2356af2ca050b773e1d2ecccacad68c684cfd24fb1bd04b63680ac16@ec2-174-129-208-118.compute-1.amazonaws.com:5432/d4iolc7kmdfhnr'
+# app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
+DATABASE_URL = os.environ['postgres://ztrqggtgkteglg:599ec0bc2356af2ca050b773e1d2ecccacad68c684cfd24fb1bd04b63680ac16@ec2-174-129-208-118.compute-1.amazonaws.com:5432/d4iolc7kmdfhnr']
+conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 
