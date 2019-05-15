@@ -8,7 +8,7 @@ import psycopg2
 app = Flask(__name__)
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://ztrqggtgkteglg:599ec0bc2356af2ca050b773e1d2ecccacad68c684cfd24fb1bd04b63680ac16@ec2-174-129-208-118.compute-1.amazonaws.com:5432/d4iolc7kmdfhnr'
 # app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
-DATABASE_URL = os.environ['postgres://ztrqggtgkteglg:599ec0bc2356af2ca050b773e1d2ecccacad68c684cfd24fb1bd04b63680ac16@ec2-174-129-208-118.compute-1.amazonaws.com:5432/d4iolc7kmdfhnr']
+DATABASE_URL = os.environ['postgres://obqhdeahjywmdj:af3c67ca9d03275979ffed391da4ec7f6a5653e58c4c08101a99b0b335bcb0d1@ec2-50-19-114-27.compute-1.amazonaws.com:5432/d13bal0e4lg27']
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
