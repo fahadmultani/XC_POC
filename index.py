@@ -32,6 +32,8 @@ class Feature(db.Model):
     productArea_id = db.Column(db.Integer, db.ForeignKey('product_area.id'), nullable=False)
     __table_args__ = (db.UniqueConstraint('client_id', 'priority', name='_client_id_uc'),)
 
+db.create_all()
+db.session.commit()
 
 @app.route("/index", methods=['POST'])
 def index():
